@@ -4,14 +4,21 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "AuraaPlayerController.generated.h"
+#include "AuraPlayerController.generated.h"
 
+class UInputMappingContext;
 /**
  * 
  */
 UCLASS()
-class AURA_API AAuraaPlayerController : public APlayerController
+class AURA_API AAuraPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
+public:
+	AAuraPlayerController();
+protected:
+	void BeginPlay() override;
+private:
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputMappingContext> AuraContext;
 };
